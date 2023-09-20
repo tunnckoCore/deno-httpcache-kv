@@ -1,8 +1,13 @@
 import { Cache } from "./deno-httpcache.ts";
 
 export async function kvCachesOpen(cacheName?: string): Cache {
-  await Deno.mkdir("./.kv-httpcache", { recursive: true });
-  const db = await Deno.openKv(`./.kv-httpcache/${cacheName || "v0"}`);
+  let db = null;
+
+  if (Deno.env.get("DENO_DEPLOYMENT_ID")) {
+    db = await Deno.openKv(cacheName || "kv-httpcache-v0");
+  } else {
+    db = await Deno.openKv(`./.kv-httpcache/${cacheName || "v0"}`);
+  }
 
   return new Cache({
     async get(url: string | URL) {
