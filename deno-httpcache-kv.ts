@@ -1,7 +1,7 @@
 import { Cache } from "./deno-httpcache.ts";
 
 export async function kvCachesOpen(cacheName?: string): Cache {
-  let db = null;
+  let db: Deno.KVStorage;
 
   if (Deno.env.get("DENO_DEPLOYMENT_ID")) {
     db = await Deno.openKv();
