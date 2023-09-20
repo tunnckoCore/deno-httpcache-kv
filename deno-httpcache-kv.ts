@@ -4,9 +4,9 @@ export async function kvCachesOpen(cacheName?: string): Cache {
   let db = null;
 
   if (Deno.env.get("DENO_DEPLOYMENT_ID")) {
-    db = await Deno.openKv(cacheName || "kv-httpcache-v0");
+    db = await Deno.openKv();
   } else {
-    db = await Deno.openKv(`./.kv-httpcache/${cacheName || "v0"}`);
+    db = await Deno.openKv(`./.kv-httpcache-${cacheName || "v0"}`);
   }
 
   return new Cache({

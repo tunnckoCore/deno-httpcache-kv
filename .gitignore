@@ -1,2 +1,3 @@
 dist
-.kv-httpcache
+.kv-httpcache*
+.kv-httpcache/*
