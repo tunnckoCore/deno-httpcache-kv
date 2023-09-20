@@ -7,7 +7,7 @@ So this uses the `deno_httpcache` by Lucas, with few tweaks, and added a `kvCach
 
 It exposes the `deno_httpcache` patch, a KV-based cache storage, and a Hono middleware patched.
 
-Try it at https://full-goat-33.deno.dev
+Try it at https://full-goat-33.deno.dev!
 
 ## Usage
 
