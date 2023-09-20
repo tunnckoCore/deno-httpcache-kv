@@ -22,7 +22,8 @@ app.get("/simulated/foo", async (c) => {
 app.get("/", async (c) => {
   return c.html(`
     <h1>deno-httpcache-kv</h1>
-    <p>Try to hit <a href="/simulated/foo">/simulated/foo</a> twice, and the second will be instant response from the kv cache.</p>
+    <p>Try to hit <a href="/simulated/foo">/simulated/foo</a> twice, and the second time
+    will be instant response from the kv cache.</p>
     <p>Afrer 1 minute it will take 10 seconds again!</p>
   `);
 });
